@@ -1,0 +1,2859 @@
+ipv6: true
+allow-lan: true
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7890
+tproxy-port: 7893
+unified-delay: true
+tcp-concurrent: true
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 12
+external-controller: 127.0.0.1:9090
+external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+find-process-mode: always
+Proxy-client-fingerprint: chrome
+keep-alive-interval: 30
+profile:
+  store-selected: true
+  store-fake-ip: true
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - "any:53"
+  auto-route: true
+  auto-detect-interface: true
+sniffer:
+  enable: false
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - +.v2ex.com
+    - 'alt1-mtalk.google.com'
+    - 'alt2-mtalk.google.com'
+    - 'alt3-mtalk.google.com'
+    - 'alt4-mtalk.google.com'
+    - 'alt5-mtalk.google.com'
+    - 'alt6-mtalk.google.com'
+    - 'alt7-mtalk.google.com'
+    - 'alt8-mtalk.google.com'
+    - 'mtalk.google.com'
+    - 'dl.google.com'
+    - 'dl.l.google.com'
+    
+dns:
+  cache-algorithm: arc
+  enable: true
+  prefer-h3: false
+  ipv6: true
+  respect-rules: true
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip #redir-host
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - 'alt1-mtalk.google.com'
+    - 'alt2-mtalk.google.com'
+    - 'alt3-mtalk.google.com'
+    - 'alt4-mtalk.google.com'
+    - 'alt5-mtalk.google.com'
+    - 'alt6-mtalk.google.com'
+    - 'alt7-mtalk.google.com'
+    - 'alt8-mtalk.google.com'
+    - 'mtalk.google.com'
+    - 'dl.google.com'
+    - 'dl.l.google.com'
+    - '*.lan'
+    - '*.localdomain'
+    - '*.example'
+    - '*.invalid'
+    - '*.localhost'
+    - '*.test'
+    - '*.local'
+    - '*.home.arpa'
+    - time.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - time.*.apple.com
+    - time1.*.com
+    - time2.*.com
+    - time3.*.com
+    - time4.*.com
+    - time5.*.com
+    - time6.*.com
+    - time7.*.com
+    - ntp.*.com
+    - ntp1.*.com
+    - ntp2.*.com
+    - ntp3.*.com
+    - ntp4.*.com
+    - ntp5.*.com
+    - ntp6.*.com
+    - ntp7.*.com
+    - '*.time.edu.cn'
+    - '*.ntp.org.cn'
+    - +.pool.ntp.org
+    - time1.cloud.tencent.com
+    - stun.*.*
+    - stun.*.*.*
+    - swscan.apple.com
+    - mesu.apple.com
+    - music.163.com
+    - '*.music.163.com'
+    - '*.126.net'
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - '*.kuwo.cn'
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - y.qq.com
+    - '*.y.qq.com'
+    - zijie.api
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - localhost.ptlogin2.qq.com
+    - '*.msftconnecttest.com'
+    - '*.msftncsi.com'
+    - '*.xiami.com'
+    - '*.music.migu.cn'
+    - music.migu.cn
+    - +.wotgame.cn
+    - +.wggames.cn
+    - +.wowsgame.cn
+    - +.wargaming.net
+    - '*.*.*.srv.nintendo.net'
+    - '*.*.stun.playstation.net'
+    - xbox.*.*.microsoft.com
+    - '*.*.xboxlive.com'
+    - '*.ipv6.microsoft.com'
+    - teredo.*.*.*
+    - teredo.*.*
+    - speedtest.cros.wr.pvp.net
+  nameserver:
+    - 223.5.5.5 # 阿里DNS
+    - 180.76.76.76 # 百度DNS
+    - 119.29.29.29 # 腾讯DNS
+    - 114.114.114.114 # 114DNS
+    - 208.67.222.222
+    - 1.2.4.8
+    - 4.2.2.2
+    - 4.2.2.1
+    - 2400:da00::6666
+    - 180.76.76.76
+    - 182.254.116.116
+    - 8.8.8.8 # 谷歌DNS
+    - 1.1.1.1 # Cloudflare
+    - 1.0.0.1
+  proxy-server-nameserver:
+    - https://94.140.14.140/dns-query
+  nameserver-policy:
+    "OR:((geosite,cn),(geoip,cn),(rule-set,cncidr))": ['https://1.12.12.12/dns-query#h3=true', https://208.67.222.222/dns-query#h3=true']
+    "geosite:geolocation-!cn": ['https://94.140.14.140/dns-query#h3=true', https://1.0.0.1/dns-query#h3=true']
+    "rule-set:adrules": ['rcode://success']
+    "rule-set:adblock": ['rcode://success']
+    "rule-set:httpDNS": ['rcode://success']
+  fallback:
+    - tls://8.8.4.4
+    - tls://1.1.1.1
+    - 208.67.222.222
+    - 2620:0:ccc::2
+    - 4.2.2.1
+    - 4.2.2.2
+    - 185.222.222.222
+    - 199.91.73.222
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    geosite:
+      - gfw
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'  
+
+
+  
+proxy-providers:
+  Nexitally_Subscription: &Nexitally
+    type: http
+    icon: https://raw.githubusercontent.com/airportchat/Logo/main/airport_logo/Nexitally.png
+    url: "https://ilmmvs.lol/?L2Rvd25sb2FkQ29uZmlnL0NsYXNoLmFzcHg/dD10cm9qYW4mZXE9d2luZG93cyZ1cms9NGI1NWM0YzEtZDRjMi00MjUwLThmN2EtNGQ3YzUwOTMwZDE5Jm1tPTIyMjE5NyYyZjc5NGFhYmYxZTk0NmZiODU1NA=="
+    interval: 10400
+    override:
+      additional-prefix: "Nexitally|"
+    proxy: Nexitally
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    path: ./providers/proxy/Nexitally.yaml
+
+  KTV_Subscription: &KTV
+    type: http
+    icon: https://raw.githubusercontent.com/airportchat/Logo/main/airport_logo/Nexitally.png
+    url: "https://portal.tkv.one/modules/servers/V2RaySocks/subscribe/?sid=1218&token=94bc3d98df20&app=clashverge"
+    interval: 10400
+    override:
+      additional-prefix: "KTV|"
+    proxy: Nexitally
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    path: ./providers/proxy/KTV.yaml
+
+  ChinaAirport_Subscription: &ChinaAirport
+    type: http
+    icon: https://raw.githubusercontent.com/airportchat/Logo/main/airport_logo/Nexitally.png
+    url: "https://gawrgura.moe/api/v1/client/subscribe?token=f7b4de53ba4a99920c1fce3c7e7dd624"
+    interval: 10400
+    override:
+      additional-prefix: "ChinaAirport|"
+    proxy: Nexitally
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    path: ./providers/proxy/ChinaAirport.yaml
+
+#订阅正则提取分组
+#Nexitally部分
+  Nexitally_Filter_All:
+    <<: *Nexitally
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset))
+
+  Nexitally_Filter_HK:
+    <<: *Nexitally
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(🇭🇰|香港|Hong|HK)
+
+  Nexitally_Filter_TW:
+    <<: *Nexitally
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(TW|🇹🇼|台湾|TaiWan|🇨🇳)
+
+  Nexitally_Filter_SG:
+    <<: *Nexitally
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(SG|新加坡|🇸🇬|Singapore)
+
+  Nexitally_Filter_US:
+    <<: *Nexitally
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(美国|States|American|USA|Seattle|San Jose|Los Angeles|🇺🇸)
+
+  Nexitally_Filter_JP:
+    <<: *Nexitally
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(日本|JP|Japan|🇯🇵)
+
+  Nexitally_Filter_EU:
+    <<: *Nexitally
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(德国|法国|荷兰|意大利|西班牙|土耳其|挪威|瑞士|瑞典|爱尔兰|芬兰|丹麦|波兰|匈牙利|英国|UK|比利时|卢森堡|希腊|葡萄牙|俄罗斯|爱尔兰|斯洛伐克|保加利亚|塞尔维亚|克罗地亚|奥地利|摩纳哥|立陶宛|拉脱维亚|罗马尼亚|捷克|乌克兰|Germany|France|Netherlands|Italy|Spain|Turkey|Norway|Switzerland|Sweden|Ireland|Finland|Denmark|Poland|Hungary|UnitedKingdom|UK|Belgium|Luxembourg|Greece|Portugal|Russia|Ireland|Slovakia|Bulgaria|Serbia|Croatia|Austria|Monaco|Lithuania|Latvia|Romania|Czech|Republic|Ukraine|🇩🇪|🇫🇷|🇳🇱|🇮🇹|🇪🇸|🇹🇷|🇳🇴|🇨🇭|🇸🇪|🇮🇪|🇫🇮|🇩🇰|🇵🇱|🇭🇺|🇧🇪|🇱🇺|🇬🇷|🇵🇹|🇦🇹|🇱🇹|🇱🇻|🇷🇴|🇨🇿|🌍|🇺🇦|🇬🇧|🇷🇺|🇮🇪|🇸🇰|🇧🇬|🇷🇸|🇭🇷|🇲🇨)
+
+
+#KTV部分
+  KTV_Filter_All:
+    <<: *KTV
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset))
+
+  KTV_Filter_HK:
+    <<: *KTV
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(🇭🇰|香港|Hong|HK)
+
+  KTV_Filter_TW:
+    <<: *KTV
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(TW|🇹🇼|台湾|TaiWan|🇨🇳)
+
+  KTV_Filter_SG:
+    <<: *KTV
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(SG|新加坡|🇸🇬|Singapore)
+
+  KTV_Filter_US:
+    <<: *KTV
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(美国|States|American|USA|Seattle|San Jose|Los Angeles|🇺🇸)
+
+  KTV_Filter_JP:
+    <<: *KTV
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(日本|JP|Japan|🇯🇵)
+
+  KTV_Filter_EU:
+    <<: *KTV
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网|Premium|GB|Expire Date|Traffic Reset)).*(德国|法国|荷兰|意大利|西班牙|土耳其|挪威|瑞士|瑞典|爱尔兰|芬兰|丹麦|波兰|匈牙利|英国|UK|比利时|卢森堡|希腊|葡萄牙|俄罗斯|爱尔兰|斯洛伐克|保加利亚|塞尔维亚|克罗地亚|奥地利|摩纳哥|立陶宛|拉脱维亚|罗马尼亚|捷克|乌克兰|Germany|France|Netherlands|Italy|Spain|Turkey|Norway|Switzerland|Sweden|Ireland|Finland|Denmark|Poland|Hungary|UnitedKingdom|UK|Belgium|Luxembourg|Greece|Portugal|Russia|Ireland|Slovakia|Bulgaria|Serbia|Croatia|Austria|Monaco|Lithuania|Latvia|Romania|Czech|Republic|Ukraine|🇩🇪|🇫🇷|🇳🇱|🇮🇹|🇪🇸|🇹🇷|🇳🇴|🇨🇭|🇸🇪|🇮🇪|🇫🇮|🇩🇰|🇵🇱|🇭🇺|🇧🇪|🇱🇺|🇬🇷|🇵🇹|🇦🇹|🇱🇹|🇱🇻|🇷🇴|🇨🇿|🌍|🇺🇦|🇬🇧|🇷🇺|🇮🇪|🇸🇰|🇧🇬|🇷🇸|🇭🇷|🇲🇨)
+
+#ChinaAirport部分
+  ChinaAirport_Filter_All:
+    <<: *ChinaAirport
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网))
+
+  ChinaAirport_Filter_HK:
+    <<: *ChinaAirport
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网)).*(🇭🇰|香港|Hong|HK)
+
+  ChinaAirport_Filter_TW:
+    <<: *ChinaAirport
+    filter: ^(?!.*(Left|国内|国际|工单|回国|官网)).*(TW|Taiwan|🇹🇼|台湾|TaiWan|🇨🇳)
+
+  ChinaAirport_Filter_SG:
+    <<: *ChinaAirport
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网)).*(SG|新加坡|🇸🇬|Singapore)
+
+  ChinaAirport_Filter_US:
+    <<: *ChinaAirport
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网)).*(美国|States|American|USA|Seattle|San Jose|Los Angeles|🇺🇸)
+
+  ChinaAirport_Filter_JP:
+    <<: *ChinaAirport
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网)).*(日本|JP|Japan|🇯🇵)
+
+  ChinaAirport_Filter_EU:
+    <<: *ChinaAirport
+    filter: ^(?!.*(Days Left|国内|国际|工单|回国|官网)).*(德国|法国|荷兰|意大利|西班牙|土耳其|挪威|瑞士|瑞典|爱尔兰|芬兰|丹麦|波兰|匈牙利|英国|UK|比利时|卢森堡|希腊|葡萄牙|俄罗斯|爱尔兰|斯洛伐克|保加利亚|塞尔维亚|克罗地亚|奥地利|摩纳哥|立陶宛|拉脱维亚|罗马尼亚|捷克|乌克兰|Germany|France|Netherlands|Italy|Spain|Turkey|Norway|Switzerland|Sweden|Ireland|Finland|Denmark|Poland|Hungary|UnitedKingdom|UK|Belgium|Luxembourg|Greece|Portugal|Russia|Ireland|Slovakia|Bulgaria|Serbia|Croatia|Austria|Monaco|Lithuania|Latvia|Romania|Czech|Republic|Ukraine|🇩🇪|🇫🇷|🇳🇱|🇮🇹|🇪🇸|🇹🇷|🇳🇴|🇨🇭|🇸🇪|🇮🇪|🇫🇮|🇩🇰|🇵🇱|🇭🇺|🇧🇪|🇱🇺|🇬🇷|🇵🇹|🇦🇹|🇱🇹|🇱🇻|🇷🇴|🇨🇿|🌍|🇺🇦|🇬🇧|🇷🇺|🇮🇪|🇸🇰|🇧🇬|🇷🇸|🇭🇷|🇲🇨)
+
+#策略分组
+proxy-groups:
+  - name: Proxy
+    type: url-test
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    proxies:  
+    use: 
+      - Nexitally_Filter_All       
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: Manual proxy
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
+    proxies:  
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+ 
+
+  - name: Game
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+       
+  - name: YouTube
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: TelegramSG
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Orz-3/mini@master/Color/Telegram.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: TelegramUS
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Orz-3/mini@master/Color/Telegram.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: TelegramEU
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Orz-3/mini@master/Color/Telegram.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: GoogleVoice
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Semporia/Hand-Painted-icon@master/Google_Suite/Voice.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: Google
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: BiliBili
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: OpenAI
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/openai.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  
+
+  - name: Emby
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: Instagram
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Instagram.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+      
+  - name: Pixiv
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pornhub.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: TikTok
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+  - name: Twitter
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png
+    proxies:
+      - Proxy
+      - 香港节点(url-test)
+      - 台湾节点(url-test)
+      - 新加坡节点(url-test)
+      - 日本节点(url-test)
+      - 美国节点(url-test)
+      - 欧洲节点(url-test)
+      - 香港节点负载均衡
+      - 台湾节点负载均衡
+      - 新加坡节点负载均衡   
+      - 日本节点负载均衡
+      - 美国节点负载均衡
+      - 欧洲节点负载均衡
+      - 香港节点(select)
+      - 台湾节点(select)
+      - 新加坡节点(select)
+      - 日本节点(select)
+      - 美国节点(select)
+      - 欧洲节点(select)
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - Nexitally
+      - KTV
+      - ChinaAirport   
+      - DIRECT
+    use:        
+      - Nexitally_Filter_All
+      - KTV_Filter_All
+      - ChinaAirport_Filter_All
+
+         
+  - name: Nexitally
+    type: select
+    icon: https://raw.githubusercontent.com/airportchat/Logo/main/airport_logo/Nexitally.png
+    proxies:
+      - Nexitally香港节点(url-test)
+      - Nexitally台湾节点(url-test)
+      - Nexitally新加坡节点(url-test)
+      - Nexitally日本节点(url-test)
+      - Nexitally美国节点(url-test)
+      - Nexitally欧洲节点(url-test)
+      - Nexitally香港节点负载均衡
+      - Nexitally台湾节点负载均衡
+      - Nexitally新加坡节点负载均衡
+      - Nexitally日本节点负载均衡
+      - Nexitally美国节点负载均衡
+      - Nexitally欧洲节点负载均衡
+      - Nexitally香港节点(select)
+      - Nexitally台湾节点(select)
+      - Nexitally新加坡节点(select)
+      - Nexitally日本节点(select)     
+      - Nexitally美国节点(select)
+      - Nexitally欧洲节点(select)
+    use:        
+      - Nexitally_Filter_All
+    
+  - name: KTV
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AmyTelecom.png
+    proxies:
+      - KTV香港节点(url-test)
+      - KTV台湾节点(url-test)
+      - KTV新加坡节点(url-test)
+      - KTV日本节点(url-test)
+      - KTV美国节点(url-test)
+      - KTV欧洲节点(url-test)
+      - KTV香港节点负载均衡
+      - KTV台湾节点负载均衡
+      - KTV新加坡节点负载均衡
+      - KTV日本节点负载均衡
+      - KTV美国节点负载均衡
+      - KTV欧洲节点负载均衡
+      - KTV香港节点(select)
+      - KTV台湾节点(select)
+      - KTV新加坡节点(select)
+      - KTV日本节点(select)
+      - KTV美国节点(select)
+      - KTV欧洲节点(select)
+    use:        
+      - KTV_Filter_All
+
+  - name: ChinaAirport
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TAG.png
+    proxies:
+      - ChinaAirport香港节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+      - ChinaAirport日本节点(url-test)
+      - ChinaAirport美国节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+      - ChinaAirport香港节点负载均衡
+      - ChinaAirport台湾节点负载均衡
+      - ChinaAirport新加坡节点负载均衡
+      - ChinaAirport日本节点负载均衡
+      - ChinaAirport美国节点负载均衡
+      - ChinaAirport欧洲节点负载均衡
+      - ChinaAirport香港节点(select)
+      - ChinaAirport台湾节点(select)
+      - ChinaAirport新加坡节点(select)
+      - ChinaAirport日本节点(select)
+      - ChinaAirport美国节点(select)
+      - ChinaAirport欧洲节点(select)
+    use:        
+      - ChinaAirport_Filter_All
+
+  - name: BANAD
+    type: select
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Reject.png
+    proxies:
+      - REJECT
+      - REJECT-DROP
+      - PASS
+
+#自动选择组
+  - name: 香港节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+      - Nexitally香港节点(url-test)
+      - KTV香港节点(url-test)
+      - ChinaAirport香港节点(url-test)
+
+  - name: 台湾节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+      - Nexitally台湾节点(url-test)
+      - KTV台湾节点(url-test)
+      - ChinaAirport台湾节点(url-test)
+
+  - name: 新加坡节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+      - Nexitally新加坡节点(url-test)
+      - KTV新加坡节点(url-test)
+      - ChinaAirport新加坡节点(url-test)
+
+  - name: 日本节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+      - Nexitally日本节点(url-test)
+      - KTV日本节点(url-test)
+      - ChinaAirport日本节点(url-test)
+
+  - name: 美国节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+      - Nexitally美国节点(url-test)
+      - KTV美国节点(url-test)
+      - ChinaAirport美国节点(url-test)
+
+  - name: 欧洲节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+      - Nexitally欧洲节点(url-test)
+      - KTV欧洲节点(url-test)
+      - ChinaAirport欧洲节点(url-test)
+
+  - name: Nexitally香港节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - Nexitally_Filter_HK
+
+  - name: Nexitally台湾节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - Nexitally_Filter_TW
+
+  - name: Nexitally日本节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - Nexitally_Filter_JP
+
+  - name: Nexitally新加坡节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - Nexitally_Filter_SG
+
+  - name: Nexitally美国节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - Nexitally_Filter_US
+
+  - name: Nexitally欧洲节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - Nexitally_Filter_EU
+  
+  - name: KTV香港节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - KTV_Filter_HK
+
+  - name: KTV台湾节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - KTV_Filter_TW
+
+  - name: KTV日本节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - KTV_Filter_JP
+
+  - name: KTV新加坡节点(url-test)
+    type: url-test
+    url: 'http://1.1.1.1' 
+    interval: 640
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - KTV_Filter_SG
+
+  - name: KTV美国节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - KTV_Filter_US
+
+  - name: KTV欧洲节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - KTV_Filter_EU
+  
+  - name: ChinaAirport香港节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_HK
+
+  - name: ChinaAirport台湾节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_TW
+
+  - name: ChinaAirport日本节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_JP
+
+  - name: ChinaAirport新加坡节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_SG
+
+  - name: ChinaAirport美国节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_US
+
+  - name: ChinaAirport欧洲节点(url-test)
+    type: url-test
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_EU
+
+#手动选择组
+
+  - name: 香港节点(select)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+      - Nexitally香港节点(select)
+      - KTV香港节点(select)
+      - ChinaAirport香港节点(select)
+
+  - name: 台湾节点(select)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+      - Nexitally台湾节点(select)
+      - KTV台湾节点(select)
+      - ChinaAirport台湾节点(select)
+
+  - name: 日本节点(select)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+      - Nexitally日本节点(select)
+      - KTV日本节点(select)
+      - ChinaAirport日本节点(select)
+
+  - name: 新加坡节点(select)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+      - Nexitally新加坡节点(select)
+      - KTV新加坡节点(select)
+      - ChinaAirport新加坡节点(select)
+
+  - name: 美国节点(select)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+      - Nexitally美国节点(select)
+      - KTV美国节点(select)
+      - ChinaAirport美国节点(select) 
+
+  - name: 欧洲节点(select)
+    type: url-test
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+      - Nexitally欧洲节点(select)
+      - KTV欧洲节点(select)
+      - ChinaAirport欧洲节点(select)
+
+  - name: Nexitally香港节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - Nexitally_Filter_HK
+      
+  - name: Nexitally台湾节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - Nexitally_Filter_TW
+    
+  - name: Nexitally日本节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - Nexitally_Filter_JP
+
+  - name: Nexitally新加坡节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - Nexitally_Filter_SG
+
+  - name: Nexitally美国节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - Nexitally_Filter_US
+
+  - name: Nexitally欧洲节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - Nexitally_Filter_EU
+      
+  - name: KTV香港节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - KTV_Filter_HK
+
+  - name: KTV台湾节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - KTV_Filter_TW
+
+  - name: KTV日本节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - KTV_Filter_JP
+
+  - name: KTV新加坡节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - KTV_Filter_SG
+
+  - name: KTV美国节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - KTV_Filter_US
+
+  - name: KTV欧洲节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - KTV_Filter_EU
+
+  - name: ChinaAirport香港节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_HK
+
+  - name: ChinaAirport台湾节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_TW
+
+  - name: ChinaAirport新加坡节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_SG
+
+  - name: ChinaAirport美国节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_US
+
+  - name: ChinaAirport日本节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_JP
+
+  - name: ChinaAirport欧洲节点(select)
+    type: select
+    health-check:
+      enable: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_EU
+
+#负载均衡组
+
+  - name: 香港节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true 
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - Nexitally_Filter_HK
+      - KTV_Filter_HK
+
+  - name: 台湾节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - Nexitally_Filter_TW
+      - KTV_Filter_TW
+
+  - name: 日本节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - Nexitally_Filter_JP
+      - KTV_Filter_JP
+
+  - name: 新加坡节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - Nexitally_Filter_SG
+      - KTV_Filter_SG
+
+  - name: 美国节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - Nexitally_Filter_US
+      - KTV_Filter_US
+
+  - name: 欧洲节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - Nexitally_Filter_EU
+      - KTV_Filter_EU
+  
+  - name: Nexitally香港节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - Nexitally_Filter_HK
+
+  - name: Nexitally台湾节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - Nexitally_Filter_TW
+
+  - name: Nexitally新加坡节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - Nexitally_Filter_SG
+
+  - name: Nexitally日本节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - Nexitally_Filter_JP
+
+  - name: Nexitally美国节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - Nexitally_Filter_US
+
+  - name: Nexitally欧洲节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - Nexitally_Filter_EU
+      
+  - name: KTV香港节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - KTV_Filter_HK
+
+  - name: KTV台湾节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - KTV_Filter_TW
+
+  - name: KTV新加坡节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - KTV_Filter_SG
+
+  - name: KTV日本节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - KTV_Filter_JP
+
+  - name: KTV美国节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - KTV_Filter_US
+
+  - name: KTV欧洲节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - KTV_Filter_EU
+      
+  - name: ChinaAirport香港节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_HK
+
+  - name: ChinaAirport台湾节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_TW
+
+  - name: ChinaAirport新加坡节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_SG
+
+  - name: ChinaAirport日本节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_JP
+
+  - name: ChinaAirport美国节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_US
+
+  - name: ChinaAirport欧洲节点负载均衡
+    type: load-balance
+    health-check:
+      enable: true
+      hidden: true
+      url: 'http://1.1.1.1'
+      interval: 30
+      timeout: 5000
+      lazy: false
+      udp: true
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    proxies:
+    use:
+      - ChinaAirport_Filter_EU     
+             
+rules:
+  - AND,((NOT,((OR,((RULE-SET,cncidr),(RULE-SET,Proxy))))),(OR,((RULE-SET,Coryrule),(RULE-SET,oisd_nsfw_abp),(RULE-SET,neodevhost),(RULE-SET,adblock),(RULE-SET,reject_domainset),(RULE-SET,Advertising),(RULE-SET,oisd_big_abp),(RULE-SET,AD_Block_Plus),(RULE-SET,adrules),(RULE-SET,BlockHttpsDNS),(RULE-SET,AWAvenue-Ads-Rule),(RULE-SET,httpDNS),(RULE-SET,ADsmerged),(GEOSITE,category-ads-all)))),BANAD
+  - RULE-SET,Game,Game
+  - RULE-SET,TelegramSG,TelegramSG
+  - RULE-SET,TelegramUS,TelegramUS
+  - RULE-SET,TelegramEU,TelegramEU
+  - RULE-SET,BiliBilintl,BiliBili
+  - RULE-SET,BiliBili,BiliBili
+  - RULE-SET,Emby,Emby
+  - RULE-SET,TikTok,TikTok
+  - RULE-SET,OpenAI,OpenAI
+  - RULE-SET,Pixiv,Pixiv
+  - RULE-SET,YouTube,YouTube
+  - RULE-SET,Instagram,Instagram
+  - RULE-SET,Twitter,Twitter
+  - PROCESS-NAME,com.google.android.apps.googlevoice,GoogleVoice
+  - DOMAIN,lens.l.google.com,GoogleVoice
+  - DOMAIN,voice.googleapis.com,GoogleVoice
+  - DOMAIN-SUFFIX,services.googleapis.cn,Google
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,Google
+  - DOMAIN-SUFFIX,xn--ngstr-cn-8za9o.com,Google
+  - DOMAIN-SUFFIX,services.googleapis.cn,Google
+  - DOMAIN-SUFFIX,safebrowsing.googleapis.com,Google
+  - RULE-SET,GoogleFCM,Google
+  - GEOSITE,GoogleFCM,Google
+  - OR,((RULE-SET,Google),(GEOSITE,Google),(GEOIP,Google)),Google
+  - RULE-SET,DouYin,TikTok
+  - OR,((GEOSITE,CN),(GEOIP,CN)),DIRECT
+  - GEOSITE,!cn,Manual proxy
+  - GEOIP,!cn,Manual proxy
+  - MATCH,Manual proxy
+
+#远程规则集合
+rule-providers:
+  Game:
+    type: http
+    url: "https://raw.githubusercontent.com/ccc52266/CC/main/README.md"
+    path: ./RuleSet/Game.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: text
+
+#Telegram
+  TelegramSG:
+    type: http
+    url: "https://raw.githubusercontent.com/ccc52266/embyh/main/clash"
+    path: ./RuleSet/TelegramSG.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: text
+
+  TelegramUS:
+    type: http
+    url: "https://raw.githubusercontent.com/ccc52266/TelegramUS/main/clash"
+    path: ./RuleSet/TelegramUS.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: text
+    
+  TelegramEU:
+    type: http
+    url: "https://raw.githubusercontent.com/ccc52266/TelegramEU/ccc52266-patch-1/clash"
+    path: ./RuleSet/TelegramEU.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: text
+
+  AWAvenue-Ads-Rule:
+    type: http
+    url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
+    path: ./RuleSet/AWAvenue-Ads-Rule.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: yaml
+   
+  oisd_nsfw_abp:
+    type: http
+    path: ./RuleSet/oisd_nsfw_abp.yaml 
+    url: "https://big.oisd.nl/domainswild2"
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: text
+  
+  oisd_big_abp:
+    type: http
+    path: ./RuleSet/oisd_big_abp.yaml 
+    url: "https://big.oisd.nl"
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: text
+    
+  ADsmerged:
+    type: http
+    behavior: domain
+    format: text
+    interval: 43200
+    url: "https://raw.githubusercontent.com/ccc52266/ad/main/adblockdns%20(1).txt"
+    path: ./RuleSet/ADsmerged.txt
+
+  Coryrule:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: Nexitally
+    url: "https://github.com/ccc52266/Klee/releases/download/v1.0/rules.mrs"
+    path: ./RuleSet/Coryrule.txt
+
+  BlockHttpsDNS:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml"
+    path: ./RuleSet/BlockHttps.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+    
+  httpDNS:
+    type: http
+    url: "https://raw.githubusercontent.com/zhiqiang02/rules_and_scripts/master/rules/httpDNS.list"
+    path: ./RuleSet/httpDNS.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: text 
+ 
+  reject_domainset:
+    type: http
+    behavior: domain
+    format: text
+    interval: 43200
+    url: "https://ruleset.skk.moe/Clash/domainset/reject.txt"
+    path: ./RuleSet/reject_domainset.txt
+    
+  AD_Block_Plus:
+    type: http
+    path: ./RuleSet/AD_Block_Plus.yaml 
+    url: "https://raw.githubusercontent.com/ccc52266/ad1/main/AD_Block_Plus.txt"
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: text
+
+  reject_ip:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: "https://ruleset.skk.moe/Clash/ip/reject.txt"
+    path: ./RuleSet/reject_ip.txt
+
+  Advertising:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingTest/AdvertisingTest_Domain.txt"
+    path: ./RuleSet/Advertising.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: text  
+    
+  neodevhost:
+    type: http
+    path: ./RuleSet/neodevhost.yaml 
+    url: "https://raw.githubusercontent.com/neodevpro/neodevhost/master/lite_clash"
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: yaml
+
+  adrules:
+    type: http
+    path: ./RuleSet/adrules.yaml 
+    url: "https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules-mihomo.mrs"
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: mrs
+
+  adblock:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 1200
+    url: "https://raw.githubusercontent.com/REIJI007/AdBlock_Rule_For_Clash/main/adblock_reject.mrs"
+    path: ./RuleSet/adblock.txt
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400 
+  #常用下载软件
+  
+  Proxy:
+    type: http
+    path: ./RuleSet/Proxy.yaml 
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Domain.txt"
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: text
+
+  Direct:
+    type: http
+    url: "https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-for-clash.yaml?"
+    path: ./RuleSet/Direct.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: domain
+    format: yaml
+    
+  Emby:
+    type: http
+    url: "https://raw.githubusercontent.com/ccc52266/Emby/main/clash"
+    path: ./RuleSet/Emby.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+  
+  #流媒体
+  YouTube:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./RuleSet/YouTube.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+
+  #OpenAI
+  OpenAI:
+    type: http
+    url: "https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/AI.yaml"
+    path: ./RuleSet/OpenAI.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+
+  #TikTok
+  TikTok:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
+    path: ./RuleSet/TikTok.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+
+  Google:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
+    path: ./RuleSet/Google.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+    
+  GoogleFCM:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GoogleFCM/GoogleFCM.list"
+    path: ./RuleSet/GoogleFCM.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: text
+    
+  #Twitter
+  Twitter:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
+    path: ./RuleSet/Twitter.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+    
+  DouYin:
+    type: http
+    url: "https://raw.githubusercontent.com/ccc52266/douyin/main/README.md"
+    path: ./RuleSet/DouYin.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+
+#BiliBili
+  BiliBili:
+    type: http
+    url: "https://raw.githubusercontent.com/ccc52266/BiliBili/main/BiliBili"
+    path: ./RuleSet/BiliBili.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+    
+  BiliBilintl:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBiliIntl/BiliBiliIntl.yaml"
+    path: ./RuleSet/BiliBilintl.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+
+#Pixiv
+  Pixiv:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Pixiv/Pixiv.yaml"
+    path: ./RuleSet/Pixiv.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+    
+  #Instagram
+  Instagram:
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml"
+    path: ./RuleSet/Instagram.yaml
+    interval: 10400
+    proxy: Nexitally
+    behavior: classical
+    format: yaml
+ 
