@@ -811,58 +811,37 @@
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
              
   rules:
-  - AND,((DOMAIN-KEYWORD,-ad-),(DOMAIN-SUFFIX,byteimg.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,-sign-),(DOMAIN-SUFFIX,tiktokcdn.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,-ttam-),(DOMAIN-SUFFIX,ibyteimg.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,ssdk-),(DOMAIN-SUFFIX,pangle.io)),BANAD
-  - AND,((DOMAIN-KEYWORD,pangolin),(DOMAIN-SUFFIX,sgsnssdk.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,lf),(DOMAIN-KEYWORD,-short.bytetos.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,v),(DOMAIN-KEYWORD,-be-pack.pglstatp-toutiao.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,sf),(DOMAIN-KEYWORD,-be-pack.pglstatp-toutiao.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,s),(DOMAIN-KEYWORD,-fe-scm.pglstatp-toutiao.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,sf),(DOMAIN-KEYWORD,-ttcdn-tos.pstatp.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,p),(DOMAIN-KEYWORD,-be-pack-sign.pglstatp-toutiao.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,sf),(DOMAIN-KEYWORD,-fe-tos.pglstatp-toutiao.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,sf),(DOMAIN-KEYWORD,-static.i18n-pglstatp.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,if),(DOMAIN-KEYWORD,-analytics.bytescm.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,lf),(DOMAIN-KEYWORD,-analytics.bytescm.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,normal),(DOMAIN-SUFFIX,zijieapi.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,-access-),(DOMAIN-SUFFIX,pangle.io)),BANAD
-  - AND,((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,-log-),(DOMAIN-SUFFIX,pangle.io)),BANAD
-  - AND,((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,-dual-event-),(DOMAIN-SUFFIX,pangle.io)),BANAD
-  - AND,((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,pangolin),(DOMAIN-SUFFIX,sgsnssdk.com)),BANAD
-  - AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,-normal-lq),(DOMAIN-SUFFIX,zijieapi.com)),BANAD
-  - DOMAIN-KEYWORD,github,Manual proxy
-  - AND,((NOT,((OR,((RULE-SET,CN),(RULE-SET,CNCIDR),(RULE-SET,Proxy))))),(OR,((RULE-SET,Coryrule),(RULE-SET,oisd_nsfw_abp),(RULE-SET,neodevhost),(RULE-SET,adblock),(RULE-SET,reject_domainset),(RULE-SET,Advertising),(RULE-SET,oisd_big_abp),(RULE-SET,AD_Block_Plus),(RULE-SET,adrules),(RULE-SET,BlockHttpsDNS),(RULE-SET,AWAvenue-Ads-Rule),(RULE-SET,httpDNS),(RULE-SET,ADsmerged),(GEOSITE,category-ads-all)))),BANAD
-  - RULE-SET,Game,Game
-  - RULE-SET,TelegramSG,TelegramSG
-  - RULE-SET,TelegramUS,TelegramUS
-  - RULE-SET,TelegramEU,TelegramEU
-  - RULE-SET,BiliBilintl,BiliBili
-  - RULE-SET,BiliBili,BiliBili
-  - RULE-SET,Emby,Emby
-  - RULE-SET,TikTok,TikTok
-  - RULE-SET,OpenAI,OpenAI
-  - RULE-SET,Pixiv,Pixiv
-  - RULE-SET,YouTube,YouTube
-  - RULE-SET,Instagram,Instagram
-  - RULE-SET,Twitter,Twitter
-  - RULE-SET,Twitterip,Twitter
-  - PROCESS-NAME,com.google.android.apps.googlevoice,GoogleVoice
-  - DOMAIN,lens.l.google.com,GoogleVoice
-  - DOMAIN,voice.googleapis.com,GoogleVoice
-  - DOMAIN-SUFFIX,services.googleapis.cn,Google
-  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,Google
-  - DOMAIN-SUFFIX,xn--ngstr-cn-8za9o.com,Google
-  - DOMAIN-SUFFIX,services.googleapis.cn,Google
-  - DOMAIN-SUFFIX,safebrowsing.googleapis.com,Google
-  - RULE-SET,Googleip,Google
-  - RULE-SET,Google,Google
-  - RULE-SET,DouYin,TikTok
-  - RULE-SET,CN,DIRECT
-  - RULE-SET,CNCIDR,DIRECT
-  - RULE-SET,Proxy,Manual proxy
-  - MATCH,Manual proxy
+    - DOMAIN-KEYWORD,github,Manual proxy
+    - OR,((RULE-SET,Coryrule),(RULE-SET,oisd_nsfw_abp),(RULE-SET,neodevhost),(RULE-SET,adblock),(RULE-SET,reject_domainset),(RULE-SET,Advertising),(RULE-SET,oisd_big_abp),(RULE-SET,AD_Block_Plus),(RULE-SET,adrules),(RULE-SET,BlockHttpsDNS),(RULE-SET,AWAvenue-Ads-Rule),(RULE-SET,httpDNS),(RULE-SET,ADsmerged),(GEOSITE,category-ads-all)),BANAD
+    - RULE-SET,Game,Game
+    - RULE-SET,TelegramSG,TelegramSG
+    - RULE-SET,TelegramUS,TelegramUS
+    - RULE-SET,TelegramEU,TelegramEU
+    - RULE-SET,BiliBilintl,BiliBili
+    - RULE-SET,BiliBili,BiliBili
+    - RULE-SET,Emby,Emby
+    - RULE-SET,TikTok,TikTok
+    - RULE-SET,OpenAI,OpenAI
+    - RULE-SET,Pixiv,Pixiv
+    - RULE-SET,YouTube,YouTube
+    - RULE-SET,Instagram,Instagram
+    - RULE-SET,Twitter,Twitter
+    - RULE-SET,Twitterip,Twitter
+    - PROCESS-NAME,com.google.android.apps.googlevoice,GoogleVoice
+    - DOMAIN,lens.l.google.com,GoogleVoice
+    - DOMAIN,voice.googleapis.com,GoogleVoice
+    - DOMAIN-SUFFIX,services.googleapis.cn,Google
+    - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,Google
+    - DOMAIN-SUFFIX,xn--ngstr-cn-8za9o.com,Google
+    - DOMAIN-SUFFIX,services.googleapis.cn,Google
+    - DOMAIN-SUFFIX,safebrowsing.googleapis.com,Google
+    - RULE-SET,Googleip,Google
+    - RULE-SET,Google,Google
+    - RULE-SET,DouYin,TikTok
+    - RULE-SET,CN,DIRECT
+    - RULE-SET,CNCIDR,DIRECT
+    - RULE-SET,Proxy,Manual proxy
+    - MATCH,Manual proxy
 
 #远程规则集合
   rule-anchor:
