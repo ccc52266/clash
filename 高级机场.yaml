@@ -130,7 +130,7 @@
 
     KTV:
       type: http
-      url: "https://portal.tkv.one/modules/servers/V2RaySocks/subscribe/?sid=1218&token=94bc3d98df20&app=clashverge"
+      url: "https://portal.tkv.one/modules/servers/V2RaySocks/subscribe/?sid=2577&token=f014ecc80a21&app=clashverge"
       interval: 10400
       override:
         additional-suffix: "|KTV"
