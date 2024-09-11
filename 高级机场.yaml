@@ -812,7 +812,7 @@
              
   rules:
     - DOMAIN-KEYWORD,github,Manual proxy
-    - AND,((NOT,((OR,((RULE-SET,CNCIDR),(RULE-SET,Proxy))))),(OR,((RULE-SET,Coryrule),(RULE-SET,oisd_nsfw_abp),(RULE-SET,neodevhost),(RULE-SET,adblock),(RULE-SET,reject_domainset),(RULE-SET,Advertising),(RULE-SET,oisd_big_abp),(RULE-SET,AD_Block_Plus),(RULE-SET,adrules),(RULE-SET,BlockHttpsDNS),(RULE-SET,AWAvenue-Ads-Rule),(RULE-SET,httpDNS),(RULE-SET,ADsmerged),(GEOSITE,category-ads-all)))),BANAD
+    - AND,((NOT,((RULE-SET,Proxy))),(OR,((RULE-SET,Coryrule),(RULE-SET,oisd_nsfw_abp),(RULE-SET,neodevhost),(RULE-SET,adblock),(RULE-SET,reject_domainset),(RULE-SET,Advertising),(RULE-SET,oisd_big_abp),(RULE-SET,AD_Block_Plus),(RULE-SET,adrules),(RULE-SET,BlockHttpsDNS),(RULE-SET,AWAvenue-Ads-Rule),(RULE-SET,httpDNS),(RULE-SET,ADsmerged),(GEOSITE,category-ads-all)))),BANAD
     - RULE-SET,Game,Game
     - RULE-SET,TelegramSG,TelegramSG
     - RULE-SET,TelegramUS,TelegramUS
