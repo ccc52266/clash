@@ -951,7 +951,7 @@
     AD_Block_Plus:
       type: http
       path: ./RuleSet/AD_Block_Plus.yaml 
-      url: "https://raw.githubusercontent.com/ccc52266/ad1/main/AD_Block_Plus.txt"
+      url: "https://raw.githubusercontent.com/ccc52266/ad/main/adblockdns%20(1).txt"
       interval: 10400
       proxy: Nexitally节点
       behavior: domain
